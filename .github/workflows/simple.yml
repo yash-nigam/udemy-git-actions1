@@ -1,0 +1,12 @@
+name: shell-commands
+on: [push,pull_request]
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: echo a string
+        run: echo "Inside  a job(Inside a steps )"
+      - name: multiline shell-commands
+        run: |
+          npm -v
+          node -v
