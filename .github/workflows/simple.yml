@@ -1,5 +1,9 @@
 name: shell-commands
-on: [push,pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0/6 * * * *"
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
@@ -15,9 +19,3 @@ jobs:
           import platform
           print(platform.processor())
         shell: python
-  runs-powershell-commands:
-    runs-on: windows-latest
-    steps:
-      - name: print windows version
-        run: Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer
-        shell: powershell
