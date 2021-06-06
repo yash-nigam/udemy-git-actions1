@@ -1,10 +1,19 @@
 name: cron-commands
 on:
-  repository_dispatch:
-    types: [build1]
+  push:
+    branches:
+      - test
+      - master
+      - 'release-*'
+  # pull_request:
+  #   branches:
+  #     - test:
+
+  # repository_dispatch:
+  #   types: [build1]
   # schedule:
   #   - cron: "0/6 * * * *"
-  pull_request:
+  #pull_request:
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
