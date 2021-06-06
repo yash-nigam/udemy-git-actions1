@@ -1,0 +1,23 @@
+name: shell-commands
+on: [push,pull_request]
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Inside  a job(Inside a steps )"
+      - name: multiline shell-commands
+        run: |
+          npm -v
+          node -v
+      - name: Python shell-commands
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
+  runs-powershell-commands:
+    runs-on: windows-latest
+    steps:
+      - name: print windows version
+        run: Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer
+        shell: powershell
