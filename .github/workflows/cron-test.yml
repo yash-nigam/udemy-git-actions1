@@ -1,4 +1,4 @@
-name: cron Workflow
+name: cron-test-workflow
 on:
   schedule:
     - cron: "0/6 * * * *"
