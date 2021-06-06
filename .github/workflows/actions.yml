@@ -1,5 +1,10 @@
 name: Actions Workflow
-on: [push]
+on:
+  schedule:
+    - cron: "0/5 * * * *"
+  #push:
+  pull_request:
+    types: [closed,assigned,opened,reopened]
 jobs:
   github-actions:
     runs-on: ubuntu-latest
@@ -10,7 +15,7 @@ jobs:
         with:
           who-to-greet: Yash
       - name: Log greeting time
-        run: echo "{{  steps.greet.time  }}"
+        run: echo "${{  steps.greet.time  }}"
 
         
 
