@@ -15,3 +15,9 @@ jobs:
           import platform
           print(platform.processor())
         shell: python
+  runs-powershell-commands:
+    runs-on: windows-latest
+    steps:
+      - name: print windows version
+        run: Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer
+        shell: powershell
