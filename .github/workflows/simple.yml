@@ -1,8 +1,10 @@
 name: cron-commands
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0/6 * * * *"
+  repository_dispatch:
+    types: [build]
+  # schedule:
+  #   - cron: "0/6 * * * *"
+  pull_request:
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
