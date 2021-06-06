@@ -1,7 +1,7 @@
 name: cron-commands
 on:
   repository_dispatch:
-    types: [build]
+    types: [build1]
   # schedule:
   #   - cron: "0/6 * * * *"
   pull_request:
